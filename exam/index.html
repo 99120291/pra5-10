@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        ul li {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id='list'>
+        <li></li>
+    </ul>
+</body>
+<script>
+    var list = document.getElementById("list");
+    var arr = "130634199508242913";
+
+    function auto(x) {
+        var arr = "";
+        for (var i = 0; i < x.length; i++) {
+            if (i == 10) {
+                var arr1 = x.substr(0, i);
+                var arr2 = x.substr(i, 4);
+                arr = `  
+                    <li>
+                        ${arr1}<b>${arr2}<b>
+                    </li>
+                `;
+            } else if (i == 14) {
+                var arr3 = x.substr(i, 4);
+                var arr4 = arr3.replace(arr3, "****");
+                arr += `  
+                        ${arr4}
+                `;
+            }
+        }
+        list.innerHTML = arr
+    }
+    if (arr.length != 18) {
+        alert("长度不对")
+    } else {
+        auto(arr)
+    }
+</script>
+
+</html>
